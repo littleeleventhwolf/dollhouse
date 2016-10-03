@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Doll House</title>
+		<style>
+			h1 {
+				font-size: 2em;
+				font-weight: bold;
+				color: #777777;
+				text-align: center
+			}
+			h2 {
+				font-size: 1.6em;
+				font-weight: bold;
+				color: #777777;
+				text-align: center
+			}
+			div {
+				text-align: center
+			}
+		</style>
+	</head>
+	<body>
+		<h1>
+			Image
+		</h1>
+		{% load static %}
+		<div>
+			<img src="/media/{{ filename }}" />
+		</div>
+		<hr />
+		<h2>Image Recognition Table</h2>
+		<table border=2 cellpadding="2" align="center">
+			<tr>
+				<th>Human String</th>
+				<th>Score</th>
+			</tr>
+			{% for item in ret_list %}
+			<tr>
+				{% for i in item %}
+					<td>{{ i }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

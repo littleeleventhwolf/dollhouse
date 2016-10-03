@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-import settings
+from django.conf import settings
+from django.conf.urls.static import static
 
 import views
 
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name="home"),
     url(r'^image_sniffer/$', views.image_sniffer, name="image_sniffer"),
-]
+    url(r'^image_sniffer/upload_and_handle/', views.upload_and_handle, name="upload_and_handle"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
