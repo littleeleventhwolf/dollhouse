@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import settings
+
 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.welcome),
-    url(r'^welcome/$', views.welcome),
+    url(r'^$', views.home, name="home"),
+    url(r'^image_sniffer/$', views.image_sniffer, name="image_sniffer"),
 ]
