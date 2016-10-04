@@ -31,6 +31,6 @@ def upload_and_handle(request):
 
 # upload handler
 def handle_uploaded_file(file, filename):
-	with open('/tmp/imagenet/' + filename, 'wb+') as destination:
+	with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'media/images/'+filename), 'wb+') as destination:
 		for chunk in file.chunks():
 			destination.write(chunk)
