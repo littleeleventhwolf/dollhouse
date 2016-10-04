@@ -1,17 +1,8 @@
 <html>
 	<head>
 		<title>Doll House</title>
-		<style>
-			h1 {
-				font-size: 2em;
-				font-weight: bold;
-				color: #777777;
-				text-align: center
-			}
-			div {
-				text-align: center
-			}
-		</style>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
 	</head>
 	<body>
 		<h1>Welcome to DollHouse!</h1>
