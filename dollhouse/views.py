@@ -23,8 +23,7 @@ def upload_and_handle(request):
 		cfi.maybe_download_and_extract()
 		image = (cfi.FLAGS.image_file if cfi.FLAGS.image_file else 
 				os.path.join(cfi.FLAGS.model_dir, filename))
-		ret_dict = cfi.run_inference_on_image(image)
-		ret_list = sorted(ret_dict.iteritems(), key=lambda d:d[1], reverse=True)
+		ret_list = cfi.run_inference_on_image(image)
 		# 3. return
 		return render_to_response('classify_image.html', {'ret_list': ret_list, 'length': len(ret_list), 'filename': filename})
 	return render_to_response('http404.html')
