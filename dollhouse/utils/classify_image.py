@@ -158,8 +158,8 @@ def run_inference_on_image(image):
   # Creates graph from saved GraphDef.
   create_graph()
 
-  # result dict
-  result = {}
+  # result list
+  result = []
 
   with tf.Session() as sess:
     # Some useful tensors:
@@ -183,7 +183,7 @@ def run_inference_on_image(image):
       human_string = node_lookup.id_to_string(node_id)
       score = predictions[node_id]
       #print('%s (score = %.5f)' % (human_string, score))
-      result[human_string] = round(score, 5)
+      result.append((human_string, score))
   return result
 
 
